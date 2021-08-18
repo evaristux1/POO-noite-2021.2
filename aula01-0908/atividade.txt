@@ -4,4 +4,3 @@
 Sua classe deve ter os seguintes métodos:
 - media: calcula a média final do aluno (cada prova tem peso 2,5 e o trabalho tem peso 2)
 - estaAprovado: verifica se o aluno tem média superior a 6
-<https://teams.microsoft.com/l/message
