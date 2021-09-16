@@ -50,6 +50,7 @@ public class Main {
                 System.out.println("3 - Consultar Saldo");
                 System.out.println("4 - Sair");
                 System.out.println("5 - depositar");
+                 System.out.println("6 - informações da conta");
                 opcao = scanner.nextInt();
                 switch (opcao) {
                     case 1:
@@ -103,6 +104,14 @@ public class Main {
                             contasCorrentes[minhaConta.numConta].saldo +=  valorDeposito;
 
                         break;
+                                  case 6:
+                        System.out.println("CPF do titular:"+contasCorrentes[minhaConta.numConta].cpfCliente);
+
+                        System.out.println("valor em conta:"+contasCorrentes[minhaConta.numConta].saldo);
+
+
+                        break;
+
                     default:
                         opcao = 4;
                 }
