@@ -36,7 +36,7 @@ public class CarrinhoCompras {
         }
     }
 
-    public void removerTodosOsProdutosDoCarrinho() {
+    public void esvaziarCarrinho() {
         for (int i = 0; i < carrinho.size(); i++) {
             Produto produto = this.carrinho.get(i);
             int qtd = quantidade.get(i);
