@@ -12,6 +12,7 @@ public class Main {
     static void comprarProduto(int index) {
         Produto produto = produtos.get(index);
         System.out.println("CÓD:Nº " + index);
+        System.out.println("cod Barras " + produto.codigoDeBarras);
         System.out.println("######################################");
         System.out.println("produto: " + produto.getNome());
         System.out.println("marca: " + produto.getMarca());
@@ -23,7 +24,6 @@ public class Main {
 
         try {
             carrinho.colocaProdutoCarrinho(produto, qtdeProduto);
-            produto.pegaProduto(qtdeProduto);
         } catch (Exception e) {
             System.out.println("Ex" + e.getMessage());
         }
@@ -35,7 +35,8 @@ public class Main {
             System.out.print("PRODUTOS DISPONÍVEIS HOJE\n");
             int index = 0;
             for (Produto produto : produtos) {
-                System.out.println("CÓD:Nº - :" + index);
+                System.out.println("CÓD:Nº " + index);
+                System.out.println("cod Barras " + produto.codigoDeBarras);
                 System.out.println("######################################");
                 System.out.println("produto: " + produto.getNome());
                 System.out.println("marca: " + produto.getMarca());
@@ -95,24 +96,31 @@ public class Main {
 
     public static void visualizarCarrinho() {
         int index = 0;
-        for (var produto : carrinho.getCarrinho()) {
+        ArrayList<Produto> produtosComprados = carrinho.getCarrinho();
+        if (produtosComprados.size() != 0) {
+            for (var produto : carrinho.getCarrinho()) {
 
-            System.out.println("CÓDIGO Nº: " + index);
-            System.out.println("Produto: " + produto.getNome());
-            System.out.println("TOTAL: " + carrinho.getValorTotal());
-            index++;
-        }
-        System.out.println("Se você deseja remover algum item , digite o código do item:");
-        System.out.println("Se  quiser esvaziar o carrinho, digite 99");
-        int opcao = scanner.nextInt();
+                System.out.println("CÓDIGO Nº: " + index);
+                System.out.println("Produto: " + produto.getNome());
+                System.out.println("TOTAL: " + carrinho.getValorTotal());
+                index++;
+            }
+            System.out.println("Se você deseja remover algum item , digite o código do item:");
+            System.out.println("Se  quiser esvaziar o carrinho, digite 99");
+            int opcao = scanner.nextInt();
 
-        if (opcao == 99) {
-            carrinho.esvaziarCarrinho();
+            if (opcao == 99) {
+                carrinho.esvaziarCarrinho();
 
+            } else {
+                ArrayList<Produto> produtos = carrinho.getCarrinho();
+                carrinho.removeProdutoCarrinho(produtos.get(opcao));
+            }
         } else {
-            ArrayList<Produto> produtos = carrinho.getCarrinho();
-            carrinho.removeProdutoCarrinho(produtos.get(opcao));
+            System.out.println("Carrinho Vazio");
+
         }
+
     }
 
     public static void main(String[] args) {

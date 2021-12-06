@@ -1,4 +1,5 @@
 import java.util.UUID;
+
 public class Produto {
     private final String nome;
     final String marca;
@@ -32,9 +33,11 @@ public class Produto {
     public String getNome() {
         return nome;
     }
+
     public String getMarca() {
         return marca;
     }
+
     public double getPreco() {
         return preco;
     }
