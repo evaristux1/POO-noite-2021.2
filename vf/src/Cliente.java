@@ -1,12 +1,13 @@
+import java.math.BigInteger;
 import java.util.ArrayList;
 
 public class Cliente {
     private final String nome;
-    private final String cpf;
+    private final BigInteger cpf;
     private ArrayList<nfe> nfesCliente;
     private double dinheiroTotal;
 
-    public Cliente(String nome, String cpf,  double totalDinheiro) {
+    public Cliente(String nome, BigInteger cpf,  double totalDinheiro) {
         this.nfesCliente = new ArrayList<>();
         this.nome = nome;
         this.cpf = cpf;
@@ -24,7 +25,7 @@ public class Cliente {
         return nome;
     }
 
-    public String getCpf() {
+    public BigInteger getCpf() {
         return cpf;
     }
 

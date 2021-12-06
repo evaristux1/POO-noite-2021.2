@@ -9,10 +9,7 @@ public class Categorias {
 
     private void instanciarCategorias() {
         categorias.add("cereais");
-        categorias.add("frios");
-        categorias.add("laticinios");
         categorias.add("carnes");
-        categorias.add("mercearia");
         categorias.add("bebidas");
     }
 

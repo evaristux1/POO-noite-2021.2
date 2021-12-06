@@ -13,8 +13,11 @@ public class CarrinhoCompras {
     public void colocaProdutoCarrinho(Produto produto, int qtd) {
         if(qtd <= 0) {
             throw new IllegalArgumentException("Você deve selecionar pelo menos um " + produto.getNome());
+        }else if(produto.getQtdeDisponivel() <qtd){
+            throw new IllegalArgumentException("Quantidade solicitada indisponível máximo:  " + produto.getQtdeDisponivel());
+
         }
-        produto.devolveProduto(qtd);
+        produto.pegaProduto(qtd);
         this.carrinho.add(produto);
         this.quantidade.add(qtd);
         this.valorTotal += qtd * produto.getPreco();

@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 
 public class Caixa {
     private nfe notaFiscal;
@@ -14,9 +13,9 @@ public class Caixa {
 
     public void recebeCarrinho() {
         double valorCarrinho = carrinho.getValorTotal();
-        double valorCarteira = cliente.getDinheiroTotal();
-        if(valorCarrinho > valorCarteira) {
-            carrinho.removerTodosOsProdutosDoCarrinho();
+        double valorCliente = cliente.getDinheiroTotal();
+        if(valorCarrinho > valorCliente) {
+            carrinho.esvaziarCarrinho();
             throw new IllegalArgumentException("Saldo insuficiente.");
         }
         this.cliente.efetuarPagamento(valorCarrinho);

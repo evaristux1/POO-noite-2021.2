@@ -1,9 +1,10 @@
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.UUID;
 
 public class nfe {
     private final ArrayList<Produto> produtosComprados;
-    private final String cpf;
+    private final BigInteger cpf;
     private final String idNFE;
     private double valorCompra;
 
