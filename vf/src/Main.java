@@ -99,23 +99,28 @@ public class Main {
         ArrayList<Produto> produtosComprados = carrinho.getCarrinho();
         if (produtosComprados.size() != 0) {
             for (var produto : carrinho.getCarrinho()) {
-
                 System.out.println("CÓDIGO Nº: " + index);
                 System.out.println("Produto: " + produto.getNome());
                 System.out.println("TOTAL: " + carrinho.getValorTotal());
                 index++;
             }
-            System.out.println("Se você deseja remover algum item , digite o código do item:");
-            System.out.println("Se  quiser esvaziar o carrinho, digite 99");
-            int opcao = scanner.nextInt();
+            System.out.println("Deseja alterar algo do carrinho?:");
+            System.out.println("1 -sim \n2 - não");
+            int alterar = scanner.nextInt();
+            if (alterar == 1) {
+                System.out.println("Se você deseja remover algum item , digite o código do item:");
+                System.out.println("Se  quiser esvaziar o carrinho, digite 99");
+                int opcao = scanner.nextInt();
 
-            if (opcao == 99) {
-                carrinho.esvaziarCarrinho();
+                if (opcao == 99) {
+                    carrinho.esvaziarCarrinho();
 
-            } else {
-                ArrayList<Produto> produtos = carrinho.getCarrinho();
-                carrinho.removeProdutoCarrinho(produtos.get(opcao));
-            }
+                } else {
+                    ArrayList<Produto> produtos = carrinho.getCarrinho();
+                    carrinho.removeProdutoCarrinho(produtos.get(opcao));
+                }
+            } 
+
         } else {
             System.out.println("Carrinho Vazio");
 
